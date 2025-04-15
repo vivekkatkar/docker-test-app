@@ -4,9 +4,10 @@ import './App.css';
 
 function App() {
   const [users, setUsers] = useState([]);
+  const url = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch(`${url}users`)
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.error("Error fetching users:", err));
